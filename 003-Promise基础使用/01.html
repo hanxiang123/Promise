@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //promise 承诺，
+        // 前期 画饼
+
+        //promise 构造函数 
+        //接受参数 exexcutor 执行器
+        var mypro = new Promise((resolve,reject)=>{
+            //如果销售额达到了
+            // resolve();
+            //如果销售额没达到了
+            setTimeout(()=>{
+                reject();
+                // resolve();
+            },1000)
+        })
+        // console.log(mypro);
+
+        // mypro.then(()=>{
+        //     console.log("发奖金");
+        // },()=>{
+        //     console.log("不发奖金");
+        // })
+
+        // mypro.catch(()=>{
+        //     console.log("不发奖金");
+        // })
+
+        mypro.then(()=>{
+            console.log("发奖金");
+        },()=>{
+            console.log("不发奖金111");
+        }).catch(()=>{
+            console.log("不发奖金222");
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./kerwinpromise.js"></script>
+</head>
+<body>
+    <script>
+      var p = new KerwinPromise((resolve,reject)=>{
+            
+            // reject("1111");
+            setTimeout(()=>{
+                // resolve("2222");
+                reject("1111");
+            },1000)
+        })  
+
+        p.then(res=>{
+            console.log("success1",res);
+        },
+        err=>{
+            console.log("error1",err);
+        })
+        p.then(res=>{
+            console.log("success2",res);
+        },
+        err=>{
+            console.log("error2",err);
+        })
+        
+    </script>
+</body>
+</html>

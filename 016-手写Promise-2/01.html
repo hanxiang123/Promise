@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./kerwinpromise.js"></script>
+</head>
+
+<body>
+    <script>
+        var p = new KerwinPromise((resolve, reject) => {
+
+            // reject("222");
+            setTimeout(() => {
+                resolve("1111");
+                // reject("1111");
+            }, 1000)
+        })
+
+        p.then(res => {
+            console.log("success", res);
+            return new KerwinPromise((resolve, reject) => {
+
+                // reject("222");
+                setTimeout(() => {
+                    // resolve(res+"22222");
+                    reject("errorr-111");
+                }, 1000)
+            })
+        }).then(res => {
+            console.log("success", res);
+        }).catch(err => {
+            console.log("catch", err);
+        })
+        // p.then(res=>{
+        //     console.log("success1",res);
+        //     // return "kerwin-"+res
+        //     return new KerwinPromise((resolve,reject)=>{
+        //         setTimeout(()=>{
+        //             reject("kerwin-"+res);
+        //         },1000)
+        //     })
+        // },
+        // err=>{
+        //     console.log("error1",err);
+
+        //     // return "kerwin-22222";
+        //     return new KerwinPromise((resolve,reject)=>{
+        //       setTimeout(()=>{
+        //         resolve("kerwin-"+err);
+        //       },1000)
+        //     })
+        // }).then(res=>{
+        //     console.log("success2",res);
+        // },err=>{
+        //     console.log("error2",err);
+        // })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+{
+    "news": [
+      { "id": 1, "title": "男人看了沉默,女人看了流泪", "author": "kerwin" },
+      { "id": 2, "title": "震惊！他年薪仅1元", "author": "tiechui" },
+      { "id": 3, "title": "速看！万分危急！", "author": "gangdan" }
+    ],
+    "comments": [
+      { "id": 1, "body": "我是男人", "newsId": 1 },
+      { "id": 2, "body": "我是女人", "newsId": 1 },
+      { "id": 3, "body": "我年薪2元", "newsId": 2 },
+      { "id": 4, "body": "我年薪3元", "newsId": 2 },
+      { "id": 5, "body": "1块钱就能买1块钱的东西", "newsId": 3 },
+      { "id": 6, "body": "2块钱就能买2块钱的东西", "newsId": 3 }
+    ]
+}
+  

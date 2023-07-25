@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function ajax(url,successCb,errroCb){
+            setTimeout(()=>{
+                //如果成功
+                // successCb();
+                //如果失败
+                errroCb();
+            },1000)
+        }
+
+        ajax("1111",()=>{
+            console.log("ajax成功");
+            ajax("2222",()=>{
+            console.log("ajax成功");
+                ajax("3333",()=>{
+                console.log("ajax成功");
+                
+                },()=>{
+                    console.log("ajax失败");
+                });
+            },()=>{
+                console.log("ajax失败");
+            });
+        },()=>{
+            console.log("ajax失败");
+        });
+
+
+        /*jquery $.ajax*/
+
+    </script>
+</body>
+</html>

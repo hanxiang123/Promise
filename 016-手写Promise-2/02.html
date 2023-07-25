@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var p = new Promise((resolve,reject)=>{
+            
+            // setTimeout(()=>{
+            //     resolve("1111");
+            // },1000);
+            reject("32");
+        })  
+
+        p.then(res=>{
+            console.log(res);
+            return new Promise((resolve,reject)=>{
+                reject("data-"+res);
+            })
+        },error=>{
+            console.log(error);
+            return "errr-11111"
+        }).then(res=>{
+            console.log(res);
+        },error=>{
+            console.log("err2",error);
+        })
+
+    </script>
+</body>
+</html>

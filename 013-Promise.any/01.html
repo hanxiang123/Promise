@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+       var p1 = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            reject("沃尔玛")
+        },1000)
+       })
+       var p2 = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            reject("华润")
+        },2000)
+       })
+       var p3 = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            reject("盒马")
+        },3000)
+       })
+
+       Promise.any([p1,p2,p3]).then(res=>{
+           console.log(res);
+           //跳转主页
+       }).catch(err=>{
+           console.log("errro");
+           //请注册
+       })
+    </script>
+</body>
+</html>

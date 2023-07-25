@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var p = Promise.reject({error:"aaaaa"});
+
+        // console.log(p);
+        p.catch(err=>{
+            console.log(err);
+        })
+
+       //返回200
+       var p =  new Promise((resolve,reject)=>{
+
+            setTimeout(()=>{
+                resolve(null);
+            },1000)
+
+
+        })
+
+        p.then(res=>{
+            console.log(res);
+            //res =null,
+            if(res){
+                console.log("渲染页面函数调用");
+            }else{
+                return Promise.reject("error");
+                // throw new Error("kerwin=error");
+            }
+        }).catch(err=>{
+            console.log(err);
+        })
+    </script>
+</body>
+</html>
