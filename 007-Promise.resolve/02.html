@@ -15,7 +15,7 @@
             // }
             var cache = ajax.cache || (ajax.cache = {data:null});
             if(cache.data){
-                console.log("走缓存");
+                console.log("走缓存", '把一个普通对象转化成一个Promise对象');
                 return Promise.resolve(cache.data);
             }
             return new Promise((resolve,reject)=>{

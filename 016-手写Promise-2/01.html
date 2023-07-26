@@ -13,28 +13,42 @@
     <script>
         var p = new KerwinPromise((resolve, reject) => {
 
-            // reject("222");
-            setTimeout(() => {
-                resolve("1111");
-                // reject("1111");
-            }, 1000)
+            reject("222");
+            // setTimeout(() => {
+            //     resolve("1111");
+            //     // reject("1111");
+            // }, 1000)
         })
 
-        p.then(res => {
-            console.log("success", res);
-            return new KerwinPromise((resolve, reject) => {
-
-                // reject("222");
-                setTimeout(() => {
-                    // resolve(res+"22222");
-                    reject("errorr-111");
-                }, 1000)
+        p.then(res=>{
+            console.log(res);
+            return new Promise((resolve,reject)=>{
+                reject("data-"+res);
             })
-        }).then(res => {
-            console.log("success", res);
-        }).catch(err => {
-            console.log("catch", err);
+        },error=>{
+            console.log('err1', error);
+            return "errr-11111"
+        }).then(res=>{
+            console.log('res', res);
+        },error=>{
+            console.log("err2",error);
         })
+
+        // p.then(res => {
+        //     console.log("success", res);
+        //     return new KerwinPromise((resolve, reject) => {
+
+        //         // reject("222");
+        //         setTimeout(() => {
+        //             // resolve(res+"22222");
+        //             reject("errorr-111");
+        //         }, 1000)
+        //     })
+        // }).then(res => {
+        //     console.log("success", res);
+        // }).catch(err => {
+        //     console.log("catch", err);
+        // })
         // p.then(res=>{
         //     console.log("success1",res);
         //     // return "kerwin-"+res
